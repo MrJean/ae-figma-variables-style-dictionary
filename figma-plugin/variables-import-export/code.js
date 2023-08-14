@@ -137,13 +137,12 @@ function processCollection({ name, modes, variableIds }) {
   const files = [];
   modes.forEach((mode) => {
     const file = { fileName: `${name}.${mode.name}.tokens.json`.toLowerCase(), body: {} };
-    variableIds.forEach((variableId) => {
+    variableIds.filter(variableId => !figma.variables.getVariableById(variableId).hiddenFromPublishing).forEach((variableId) => {
       const { name, resolvedType, valuesByMode, description } =
         figma.variables.getVariableById(variableId);
       const value = valuesByMode[mode.modeId];
       if (value !== undefined && ["COLOR", "FLOAT"].includes(resolvedType)) {
         let obj = file.body;
-        console.log(obj);
         name.split("/").forEach((groupName) => {
           obj[groupName] = obj[groupName] || {};
           obj = obj[groupName];
