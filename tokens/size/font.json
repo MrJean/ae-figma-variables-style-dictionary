@@ -1,0 +1,26 @@
+{
+  "size": {
+    "font": {
+      "base": {
+        "type": "number",
+        "description": "the base size of the font",
+        "value": "{size.font.medium.value}"
+      },
+      "large": {
+        "type": "number",
+        "description": "the large size of the font",
+        "value": 2
+      },
+      "medium": {
+        "type": "number",
+        "description": "the medium size of the font",
+        "value": 1
+      },
+      "small": {
+        "type": "number",
+        "description": "the small size of the font",
+        "value": 0.75
+      }
+    }
+  }
+}
